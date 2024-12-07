@@ -4,9 +4,11 @@ import LandingPage from './pages/landing/index.jsx'
 import './assets/css/main.css'
 
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <LandingPage></LandingPage>
+    <LandingPage>
+    </LandingPage>
   </StrictMode>,
 )
 
