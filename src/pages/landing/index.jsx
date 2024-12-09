@@ -10,7 +10,6 @@ const LandingPage = () => {
 
   return (
     <>
-      <HomeHeader ></HomeHeader>
 
       <HomeBanner loading={loading} />
       <PageTitle>
@@ -31,7 +30,7 @@ const LandingPage = () => {
         </svg>
         Home page
       </PageTitle>
-      <HomeFooter />
+
     </>
   );
 };
