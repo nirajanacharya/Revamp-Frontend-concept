@@ -1,6 +1,7 @@
 import "flowbite";
+import { DarkThemeToggle } from "flowbite-react";
 
-const HomeHeader = ({ user }) => {
+const HomeHeader = () => {
   return (
     <nav className="bg-white dark:bg-gray-800 antialiased">
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
@@ -24,7 +25,7 @@ const HomeHeader = ({ user }) => {
             <ul className="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
@@ -33,29 +34,29 @@ const HomeHeader = ({ user }) => {
               </li>
               <li className="shrink-0">
                 <a
-                  href="#"
+                  href="/about-us"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
-                  Best Sellers
+                 about us
                 </a>
               </li>
               <li className="shrink-0">
                 <a
-                  href="#"
+                  href="/products"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
-                  Gift Ideas
+                  shop now 
                 </a>
               </li>
               <li className="shrink-0">
                 <a
-                  href="#"
+                  href="/contact"
                   title=""
                   className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
-                  Today's Deals
+                  privacy & policy
                 </a>
               </li>
               <li className="shrink-0">
@@ -71,6 +72,7 @@ const HomeHeader = ({ user }) => {
           </div>
 
           <div className="flex items-center lg:space-x-2">
+            
             <button
               id="myCartDropdownButton1"
               data-dropdown-toggle="myCartDropdown1"
@@ -117,7 +119,7 @@ const HomeHeader = ({ user }) => {
 
             <div
               id="myCartDropdown1"
-              className="hidden z-10 mx-auto max-w-sm space-y-4 overflow-hidden rounded-lg bg-white p-4 antialiased shadow-lg dark:bg-gray-800"
+              className="hidden z-40 mx-auto max-w-sm space-y-4 overflow-hidden rounded-lg bg-white p-4 antialiased shadow-lg dark:bg-gray-800"
             >
               <div className="grid grid-cols-2">
                 <div>
@@ -160,7 +162,7 @@ const HomeHeader = ({ user }) => {
                   <div
                     id="tooltipRemoveItem1a"
                     role="tooltip"
-                    className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+                    className="tooltip invisible absolute z-40 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                   >
                     Remove item
                     <div className="tooltip-arrow" data-popper-arrow></div>
@@ -209,7 +211,7 @@ const HomeHeader = ({ user }) => {
                   <div
                     id="tooltipRemoveItem2a"
                     role="tooltip"
-                    className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+                    className="tooltip invisible absolute z-40 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                   >
                     Remove item
                     <div className="tooltip-arrow" data-popper-arrow></div>
@@ -258,7 +260,7 @@ const HomeHeader = ({ user }) => {
                   <div
                     id="tooltipRemoveItem3b"
                     role="tooltip"
-                    className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+                    className="tooltip invisible absolute z-40 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                   >
                     Remove item
                     <div className="tooltip-arrow" data-popper-arrow></div>
@@ -307,7 +309,7 @@ const HomeHeader = ({ user }) => {
                   <div
                     id="tooltipRemoveItem4b"
                     role="tooltip"
-                    className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+                    className="tooltip invisible absolute z-40 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                   >
                     Remove item
                     <div className="tooltip-arrow" data-popper-arrow></div>
@@ -356,7 +358,7 @@ const HomeHeader = ({ user }) => {
                   <div
                     id="tooltipRemoveItem5b"
                     role="tooltip"
-                    className="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
+                    className="tooltip invisible absolute z-40 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                   >
                     Remove item
                     <div className="tooltip-arrow" data-popper-arrow></div>
@@ -415,13 +417,13 @@ const HomeHeader = ({ user }) => {
                 />
               </svg>
             </button>
-
+                 
             <div
               id="userDropdown1"
-              className="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700"
+              className="hidden z-40 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700"
             >
-              { (user) ? 
-                <>
+             
+              
                   <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
                     <li>
                       <a
@@ -495,12 +497,10 @@ const HomeHeader = ({ user }) => {
                       Sign Out{" "}
                     </a>
                   </div>
-                </>
-               : 
-                <></>
-              }
+          
+            
             </div>
-
+            <DarkThemeToggle></DarkThemeToggle>
             <button
               type="button"
               data-collapse-toggle="ecommerce-navbar-menu-1"
