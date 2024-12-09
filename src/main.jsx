@@ -1,14 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import LandingPage from './pages/landing/index.jsx'
-import './assets/css/main.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./assets/css/main.css";
+import { Flowbite } from "flowbite-react";
+import "flowbite";
+import Routing from "./config/routing.component";
 
-
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <LandingPage>
-    </LandingPage>
-  </StrictMode>,
-)
-
+    <Flowbite theme={{ mode: "auto" }}>
+     <Routing/>
+    </Flowbite>
+  </StrictMode>
+);
