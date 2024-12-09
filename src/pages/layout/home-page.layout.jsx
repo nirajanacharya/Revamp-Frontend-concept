@@ -1,18 +1,19 @@
-import HomeFooter from "../../components/footer/footer.component"
-import HomeHeader from "../../components/Header/header.component"
+import { Outlet } from "react-router-dom";
+import HomeFooter from "../../components/footer/footer.component";
+import HomeHeader from "../../components/Header/header.component";
 
 const HomeLayout = () => {  
-<>
-<HomeHeader></HomeHeader>
+  return (
+    <>
+      <HomeHeader />
 
-{/* content starts */}
+      {/* Content starts */}
+      <Outlet />
+      {/* Content ends */}
 
-{/* contents ends */}
+      <HomeFooter />
+    </>
+  );
+};
 
-<HomeFooter></HomeFooter>
-
-</>
-
-}
-
-export default HomeLayout;  
+export default HomeLayout;
