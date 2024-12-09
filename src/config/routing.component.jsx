@@ -22,14 +22,14 @@ const Routing = () => {
   return (
 
 <RouterProvider router = {Router}/>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <></>
-    //     <Route path="/" element={<LandingPage />}></Route>  
-    //     <Route path="/about-us" element={<AboutUsPage />}></Route>
-    //     <Route path='/products' element={<AllProductGrid/>}></Route>
-    //   </Routes>
-    // </BrowserRouter>
+    // {/* // <BrowserRouter>
+    // //   <Routes>
+    // //     <></>
+    // //     <Route path="/" element={<LandingPage />}></Route>  
+    // //     <Route path="/about-us" element={<AboutUsPage />}></Route>
+    // //     <Route path='/products' element={<AllProductGrid/>}></Route>
+    // //   </Routes>
+    // // </BrowserRouter> */}
   );
 };
 
