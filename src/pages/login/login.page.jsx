@@ -1,4 +1,28 @@
+import { useState } from "react";
+
 const Login = () => {
+ const [credentials, setCredentials] = useState();
+
+  const inputChangeEvent = (event)=>{
+  const   {value,name} =  event.target;
+
+  setCredentials({
+
+    ...credentials,
+    [name]:value
+  })
+
+
+console.log( credentials);
+
+  }
+
+  const submitEvent = (event) =>{
+    //api calls
+    event.preventDefault();
+    
+  }
+
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -19,10 +43,10 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+            <form onSubmit={submitEvent}  className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Your email
@@ -31,6 +55,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     id="email"
+                    onChange={inputChangeEvent}
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
                     required=""
@@ -38,7 +63,7 @@ const Login = () => {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Password
@@ -47,6 +72,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     id="password"
+                    onChange={inputChangeEvent}
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
@@ -65,7 +91,7 @@ const Login = () => {
                     </div>
                     <div className="ml-3 text-sm">
                       <label
-                        for="remember"
+                        htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
                         Remember me
@@ -81,10 +107,11 @@ const Login = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 focus:outline-none text-white font-semibold rounded-lg text-sm px-6 py-3 transition-all duration-300 ease-in-out transhtmlForm hover:scale-105 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-900"
                 >
                   Sign in
                 </button>
+
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <a
