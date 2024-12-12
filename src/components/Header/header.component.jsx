@@ -1,5 +1,6 @@
 import "flowbite";
 import { DarkThemeToggle } from "flowbite-react";
+import { NavLink } from "react-router-dom";
 
 const HomeHeader = () => {
   return (
@@ -8,7 +9,7 @@ const HomeHeader = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="shrink-0">
-              <a href="#" title="" className="">
+              <NavLink to= '/' title="" className="">
                 <img
                   className="block w-auto h-8 dark:hidden"
                   src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
@@ -19,18 +20,18 @@ const HomeHeader = () => {
                   src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                   alt=""
                 />
-              </a>
+              </NavLink>
             </div>
 
             <ul className="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
               <li>
-                <a
-                  href="/"
+                <NavLink
+                 to ="/"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="shrink-0">
                 <a
@@ -42,31 +43,31 @@ const HomeHeader = () => {
                 </a>
               </li>
               <li className="shrink-0">
-                <a
-                  href="/products"
+                <NavLink
+                  to="/products"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
                   shop now 
-                </a>
+                </NavLink>
               </li>
               <li className="shrink-0">
-                <a
-                  href="/contact"
+                <NavLink
+                  to="/contact"
                   title=""
                   className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
                   privacy & policy
-                </a>
+                </NavLink>
               </li>
               <li className="shrink-0">
-                <a
+                <NavLink
                   href="#"
                   title=""
                   className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
                   Sell
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -427,76 +428,26 @@ const HomeHeader = () => {
                   <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
                     <li>
                       <a
-                        href="#"
+                        href="/login"
                         title=""
                         className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
                       >
                         {" "}
-                        My Account{" "}
+                        Login{" "}
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/register"
                         title=""
                         className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
                       >
                         {" "}
-                        My Orders{" "}
+                        Register{" "}
                       </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        title=""
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        {" "}
-                        Settings{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        title=""
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        {" "}
-                        Favourites{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        title=""
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        {" "}
-                        Delivery Addresses{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        title=""
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        {" "}
-                        Billing Data{" "}
-                      </a>
-                    </li>
-                  </ul>
 
-                  <div className="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                    <a
-                      href="#"
-                      title=""
-                      className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"
-                    >
-                      {" "}
-                      Sign Out{" "}
-                    </a>
-                  </div>
+                      </li>
+                  </ul>
           
             
             </div>
