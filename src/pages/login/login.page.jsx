@@ -1,27 +1,13 @@
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 const Login = () => {
- const [credentials, setCredentials] = useState();
+  const { control, handleSubmit, formState: { errors } } = useForm();
 
-  const inputChangeEvent = (event)=>{
-  const   {value,name} =  event.target;
-
-  setCredentials({
-
-    ...credentials,
-    [name]:value
-  })
-
-
-console.log( credentials);
-
-  }
-
-  const submitEvent = (event) =>{
-    //api calls
-    event.preventDefault();
-    
-  }
+  const submitEvent = (data) => {
+    // API calls
+    console.log(data);
+  };
 
   return (
     <>
@@ -43,7 +29,7 @@ console.log( credentials);
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-            <form onSubmit={submitEvent}  className="space-y-4 md:space-y-6" action="#">
+              <form onSubmit={handleSubmit(submitEvent)} className="space-y-4 md:space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -51,15 +37,21 @@ console.log( credentials);
                   >
                     Your email
                   </label>
-                  <input
-                    type="email"
+
+                  <Controller
                     name="email"
-                    id="email"
-                    onChange={inputChangeEvent}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
-                    required=""
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <input
+                        type="email"
+                        {...field}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="name@company.com"
+                      />
+                    )}
                   />
+                  <span className="text-red-500">{errors.email && "Email is required"}</span>
                 </div>
                 <div>
                   <label
@@ -68,15 +60,21 @@ console.log( credentials);
                   >
                     Password
                   </label>
-                  <input
-                    type="password"
+
+                  <Controller
                     name="password"
-                    id="password"
-                    onChange={inputChangeEvent}
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <input
+                        type="password"
+                        {...field}
+                        placeholder="••••••••"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                    )}
                   />
+                  <span className="text-red-500">{errors.password && "Password is required"}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
@@ -86,7 +84,6 @@ console.log( credentials);
                         aria-describedby="remember"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required=""
                       />
                     </div>
                     <div className="ml-3 text-sm">
