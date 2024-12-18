@@ -6,7 +6,8 @@ import UserLayoutPage from "../pages/layout/user-layout.page";
 import AdminDashboard from "../pages/dashboard/admin-dashboard.page";
 import HomeLayout from "../pages/layout/home-page.layout";
 import ProductCategoryList from "../pages/category/category-product.list";
-import Login from "../pages/login/login.page";  
+import Login from "../pages/login/login.page";
+import Register from "../pages/register/register.page";   
 
 const Router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path:'/login',
         element:<Login/>
+      },
+      {
+        path:'/register',
+        element:<Register/>
       }
     ],
   },

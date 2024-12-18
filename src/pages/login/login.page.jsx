@@ -1,17 +1,26 @@
 import { TextInputField } from "../../components/form/input-form.component";
 import { useForm } from "react-hook-form";
+import * as Yup from "yup"; 
+import { yupResolver } from "@hookform/resolvers/yup";  
 
 const Login = () => {
+ const loginDTO = Yup.object({
+    email: Yup.string().email("IInvalid Email Format").required("Email is required"),
+    password: Yup.string().required().min(6)
+ })
+
   const { 
     control, 
     handleSubmit, 
     formState: { errors } 
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(loginDTO)
+  });
 
   const submitEvent = (data) => {
     console.log(data); // Handle API calls or form submission
   };
-
+console.log(errors) 
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -54,7 +63,7 @@ const Login = () => {
                         message: "Invalid email format",
                       },
                     }}
-                    errMsg={errors.email}
+                    errMsg= {errors?.email?.message}
                   />
                 </div>
                 <div>
