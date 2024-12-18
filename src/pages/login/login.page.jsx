@@ -1,14 +1,26 @@
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { TextInputField } from "../../components/form/input-form.component";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup"; 
+import { yupResolver } from "@hookform/resolvers/yup";  
 
 const Login = () => {
-  const { control, handleSubmit, formState: { errors } } = useForm();
+ const loginDTO = Yup.object({
+    email: Yup.string().email("IInvalid Email Format").required("Email is required"),
+    password: Yup.string().required().min(6)
+ })
+
+  const { 
+    control, 
+    handleSubmit, 
+    formState: { errors } 
+  } = useForm({
+    resolver: yupResolver(loginDTO)
+  });
 
   const submitEvent = (data) => {
-    // API calls
-    console.log(data);
+    console.log(data); // Handle API calls or form submission
   };
-
+console.log(errors) 
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -29,7 +41,10 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form onSubmit={handleSubmit(submitEvent)} className="space-y-4 md:space-y-6">
+              <form 
+                onSubmit={handleSubmit(submitEvent)} 
+                className="space-y-4 md:space-y-6"
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -37,21 +52,19 @@ const Login = () => {
                   >
                     Your email
                   </label>
-
-                  <Controller
-                    name="email"
+                  <TextInputField
                     control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                      <input
-                        type="email"
-                        {...field}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="name@company.com"
-                      />
-                    )}
+                    name="email"
+                    type="email"
+                    rules={{
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                        message: "Invalid email format",
+                      },
+                    }}
+                    errMsg= {errors?.email?.message}
                   />
-                  <span className="text-red-500">{errors.email && "Email is required"}</span>
                 </div>
                 <div>
                   <label
@@ -60,21 +73,19 @@ const Login = () => {
                   >
                     Password
                   </label>
-
-                  <Controller
-                    name="password"
+                  <TextInputField
                     control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                      <input
-                        type="password"
-                        {...field}
-                        placeholder="••••••••"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      />
-                    )}
+                    name="password"
+                    type="password"
+                    rules={{
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters",
+                      },
+                    }}
+                    errMsg={errors.password}
                   />
-                  <span className="text-red-500">{errors.password && "Password is required"}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
